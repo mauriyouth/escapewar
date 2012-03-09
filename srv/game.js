@@ -81,11 +81,23 @@ var game = function(spec, my) {
     for(var i = 0; i < that.all().length; i ++) {
       if(that.all()[i].type() === config.SHIP_TYPE) {
         that.all()[i].thrust();
+        console.log("velocity x: " +  that.all()[i].velocity().x );
+        console.log("velocity y: "  + that.all()[i].velocity().y );
       }
       if(that.all()[i].type() === config.MISSILE_TYPE) {
       }
     }
-    _super.step();
+    
+    for(var j = 0; j < that.all().length; j ++) {
+      if(that.all()[j].type() === config.SHIP_TYPE) {
+        if(Math.abs(that.all()[j].velocity.x) > config.MAX_VELOCITY.X)
+        that.all()[j].destroy();
+        if(Math.abs(that.all()[j].velocity.y) > config.MAX_VELOCITY.Y)
+          that.all()[j].destroy();
+      }
+    }
+    
+      _super.step();
   };
 
 

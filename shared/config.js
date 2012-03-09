@@ -5,7 +5,7 @@ var config = {
     
     HALFSIZE_X: 1500,
     HALFSIZE_Y: 1000,
-
+  
     STEP_TIME: 15,
     GM: 30,
     
@@ -45,6 +45,9 @@ var config = {
     PLANET_RADIUS: { 'earth': 150,
                      'moon': 50 },
     
+    MAX_VELOCITY: { 'X': 3,
+                    'Y': 3
+                  }
 };
 
 exports.config = config;
